@@ -32,9 +32,16 @@
   .screen.active{display:flex;}
   .material-symbols-rounded{font-variation-settings:'wght' 400;}
 
+  /* ---------- language switcher ---------- */
+  .langrow{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}
+  .langrow.top-place{margin-bottom:18px;}
+  .langbtn{border:1px solid var(--line);background:var(--bg);color:var(--sub);font-family:inherit;font-size:12px;font-weight:600;padding:6px 12px;border-radius:99px;cursor:pointer;transition:.15s;}
+  .langbtn:hover{border-color:var(--green);color:var(--green-d);}
+  .langbtn.on{background:var(--green);border-color:var(--green);color:#fff;}
+
   /* ---------- welcome ---------- */
-  .welcome{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(40px + env(safe-area-inset-top)) 34px 40px;text-align:center;}
-  .brandtag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:40px;}
+  .welcome{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(28px + env(safe-area-inset-top)) 34px 40px;text-align:center;}
+  .brandtag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:22px;}
   .check{width:56px;height:56px;border-radius:50%;background:var(--green-w);display:flex;align-items:center;justify-content:center;margin-bottom:26px;}
   .check .material-symbols-rounded{font-size:30px;color:var(--green);font-variation-settings:'wght' 500;}
   .scanned{font-size:13px;color:var(--sub);margin-bottom:22px;letter-spacing:.01em;}
@@ -42,22 +49,22 @@
   .illus svg{width:120px;height:120px;}
   .thumb svg{width:34px;height:34px;}
   .pname{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;}
-  .pmeta{display:inline-flex;gap:8px;margin-bottom:44px;}
+  .pmeta{display:inline-flex;gap:8px;margin-bottom:36px;}
   .pmeta span{font-size:12px;font-weight:600;color:var(--sub);background:var(--bg);border:1px solid var(--line);padding:5px 11px;border-radius:99px;}
   .cta{width:100%;max-width:280px;background:var(--green);color:#fff;border:0;border-radius:16px;padding:17px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:background .18s,transform .12s;}
   .cta:hover{background:var(--green-d);}
   .cta:active{transform:scale(.98);}
 
   /* ---------- product screen ---------- */
-  .top{padding:calc(22px + env(safe-area-inset-top)) 24px 18px;border-bottom:1px solid var(--line);flex-shrink:0;}
-  .back{display:inline-flex;align-items:center;gap:4px;background:none;border:0;color:var(--sub);font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;padding:0;margin-bottom:16px;}
+  .top{padding:calc(18px + env(safe-area-inset-top)) 24px 16px;border-bottom:1px solid var(--line);flex-shrink:0;}
+  .back{display:inline-flex;align-items:center;gap:4px;background:none;border:0;color:var(--sub);font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;padding:0;margin-bottom:14px;}
   .back .material-symbols-rounded{font-size:18px;}
-  .prodrow{display:flex;align-items:center;gap:14px;}
+  .prodrow{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
   .thumb{width:54px;height:54px;border-radius:14px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .prodrow h1{font-size:19px;font-weight:700;letter-spacing:-.01em;}
   .prodrow .m{font-size:12.5px;color:var(--faint);margin-top:2px;}
 
-  .body{flex:1;overflow-y:auto;padding:20px 24px 24px;min-height:0;display:flex;flex-direction:column;}
+  .body{flex:1;overflow-y:auto;padding:16px 24px 24px;min-height:0;display:flex;flex-direction:column;}
   .body::-webkit-scrollbar{width:0;}
 
   .seg{display:flex;gap:0;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:4px;margin-bottom:22px;}
@@ -98,7 +105,7 @@
   @keyframes eq{0%,100%{transform:scaleY(.4);}50%{transform:scaleY(1);}}
 
   /* footer controls */
-  .foot{flex-shrink:0;padding:16px 24px 22px;border-top:1px solid var(--line);background:var(--card);}
+  .foot{flex-shrink:0;padding:14px 24px 22px;border-top:1px solid var(--line);background:var(--card);}
   .voice{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
   .voice label{font-size:11px;font-weight:500;color:var(--faint);white-space:nowrap;}
   .voice select{flex:1;font-family:inherit;font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--bg);outline:none;}
@@ -107,28 +114,45 @@
   .play:hover{background:var(--green-d);}
   .play:active{transform:scale(.99);}
   .play:disabled{background:#E6E9EC;color:var(--faint);cursor:not-allowed;}
+  .askbtn{width:100%;background:#fff;color:var(--green-d);border:1.5px solid var(--green);border-radius:16px;padding:14px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.18s;margin-bottom:10px;}
+  .askbtn:hover{background:var(--green-w);}
+  .askbtn .material-symbols-rounded{font-size:19px;}
+  .askbtn.listening{background:var(--green);color:#fff;border-color:var(--green);animation:pulse 1.1s infinite;}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(11,163,78,.35);}50%{box-shadow:0 0 0 8px rgba(11,163,78,0);}}
+  .noSpeech{font-size:11px;color:var(--faint);text-align:center;margin:-4px 0 10px;}
+
+  /* ---------- RTL (Arabic) ---------- */
+  [dir="rtl"] .opt{text-align:right;}
+  [dir="rtl"] .back{flex-direction:row-reverse;}
+  [dir="rtl"] .back .material-symbols-rounded{transform:scaleX(-1);}
+  [dir="rtl"] .opt .chev{transform:scaleX(-1);}
+  [dir="rtl"] .prodrow{flex-direction:row-reverse;text-align:right;}
+  [dir="rtl"] .rrow{flex-direction:row-reverse;text-align:right;}
+  [dir="rtl"] .voice{flex-direction:row-reverse;}
+  [dir="rtl"] .pmeta,[dir="rtl"] .m,[dir="rtl"] #mPrice,[dir="rtl"] #mSize,[dir="rtl"] #mDisc{direction:ltr;}
 </style>
 </head>
 <body>
-<div class="phone">
+<div class="phone" id="phone">
 
   <!-- WELCOME -->
   <div class="screen active" id="s1">
     <div class="welcome">
-      <div class="brandtag">Smart Store · EAH Jena</div>
+      <div class="langrow top-place" id="langrowWelcome"></div>
+      <div class="brandtag" data-i="brandtag">Smart Store · EAH Jena</div>
       <div class="check"><span class="material-symbols-rounded">check</span></div>
-      <div class="scanned">Gescanntes Produkt</div>
+      <div class="scanned" data-i="scanned">Gescanntes Produkt</div>
       <div class="illus" id="illus"></div>
       <div class="pname" data-pname>Protein Bar</div>
       <div class="pmeta"><span id="mPrice">€ 2,49</span><span id="mSize">50 g</span><span id="mDisc">−25 %</span></div>
-      <button class="cta" onclick="go('s2')">Produktinfos ansehen</button>
+      <button class="cta" data-i="cta" onclick="go('s2')">Produktinfos ansehen</button>
     </div>
   </div>
 
   <!-- PRODUCT -->
   <div class="screen" id="s2">
     <div class="top">
-      <button class="back" onclick="reset()"><span class="material-symbols-rounded">arrow_back</span> Erneut scannen</button>
+      <button class="back" onclick="reset()"><span class="material-symbols-rounded">arrow_back</span> <span data-i="back">Erneut scannen</span></button>
       <div class="prodrow">
         <div class="thumb" id="thumb"></div>
         <div>
@@ -136,27 +160,86 @@
           <div class="m" data-pmetaline>€ 2,49 · 50 g · −25 %</div>
         </div>
       </div>
+      <div class="langrow" id="langrowProduct"></div>
     </div>
     <div class="body">
       <div class="seg">
-        <button id="segNew" class="on" onclick="setSeg('new')">Erstkäufer</button>
-        <button id="segRet" onclick="setSeg('return')">Stammkunde</button>
+        <button id="segNew" class="on" onclick="setSeg('new')" data-i="segNew">Erstkäufer</button>
+        <button id="segRet" onclick="setSeg('return')" data-i="segRet">Stammkunde</button>
       </div>
       <div class="hint" id="hint">Wähle, was dich interessiert</div>
       <div class="list" id="list"></div>
       <div class="result" id="result"></div>
     </div>
     <div class="foot">
-      <div class="voice"><label>Stimme</label><select id="voiceSel"></select></div>
+      <div class="voice"><label data-i="voiceLabel">Stimme</label><select id="voiceSel"></select></div>
+      <button class="askbtn" id="askBtn" onclick="startListening()">
+        <span class="material-symbols-rounded">mic</span> <span data-i="askBtn">Frage stellen</span>
+      </button>
       <button class="play" id="playBtn" onclick="speak()" disabled>
-        <span class="material-symbols-rounded">volume_up</span> Information anhören
+        <span class="material-symbols-rounded">volume_up</span> <span data-i="playBtn">Information anhören</span>
       </button>
     </div>
   </div>
 </div>
 
 <script>
-// ===== PRODUKT-DATENBANK (mehrere Produkte) =====
+// ===== SPRACHEN / LANGUAGES =====
+const LANG_META = {
+  de:{code:'de-DE', label:'DE', dir:'ltr'},
+  en:{code:'en-US', label:'EN', dir:'ltr'},
+  es:{code:'es-ES', label:'ES', dir:'ltr'},
+  ar:{code:'ar-SA', label:'AR', dir:'rtl'},
+};
+
+const UI = {
+  de:{
+    brandtag:"Smart Store · EAH Jena", scanned:"Gescanntes Produkt", cta:"Produktinfos ansehen",
+    back:"Erneut scannen", segNew:"Erstkäufer", segRet:"Stammkunde",
+    hintNew:"Eigenschaften – was ist drin?", hintRet:"Kurz geprüft – das Wesentliche",
+    voiceLabel:"Stimme", playBtn:"Information anhören", playing:"Wird vorgelesen…",
+    askBtn:"Frage stellen", listening:"Ich höre zu…", noMatch:"Das habe ich nicht verstanden – bitte auswählen.",
+    noSpeechRecog:"Spracherkennung wird in diesem Browser nicht unterstützt.",
+    thinking:"Einen Moment…", aiUnavailable:"KI-Antwort gerade nicht verfügbar – hier die passende Kategorie:",
+    groupsNew:{vegan:"Vegan", halal:"Halal", bio:"Bio / Organik", alter:"Altersbeschränkung", nuts:"Allergene", naehzu:"Nährwerte & Zutaten", allnew:"Alle Eigenschaften"},
+    groupsRet:{date:"Verfallsdatum & Charge", recycle:"Entsorgung & Recycling", rating:"Bewertungen", allret:"Alle Infos"},
+  },
+  en:{
+    brandtag:"Smart Store · EAH Jena", scanned:"Scanned product", cta:"View product info",
+    back:"Scan again", segNew:"First-time buyer", segRet:"Regular customer",
+    hintNew:"Properties – what's inside?", hintRet:"Quick check – the essentials",
+    voiceLabel:"Voice", playBtn:"Listen to information", playing:"Playing…",
+    askBtn:"Ask a question", listening:"Listening…", noMatch:"I didn't catch that – please select manually.",
+    noSpeechRecog:"Speech recognition isn't supported in this browser.",
+    thinking:"One moment…", aiUnavailable:"AI answer unavailable right now – here's the matching category:",
+    groupsNew:{vegan:"Vegan", halal:"Halal", bio:"Organic", alter:"Age restriction", nuts:"Allergens", naehzu:"Nutrition & ingredients", allnew:"All properties"},
+    groupsRet:{date:"Best-before date & batch", recycle:"Disposal & recycling", rating:"Reviews", allret:"All info"},
+  },
+  es:{
+    brandtag:"Smart Store · EAH Jena", scanned:"Producto escaneado", cta:"Ver información del producto",
+    back:"Escanear de nuevo", segNew:"Primera compra", segRet:"Cliente habitual",
+    hintNew:"Propiedades – ¿qué contiene?", hintRet:"Revisión rápida – lo esencial",
+    voiceLabel:"Voz", playBtn:"Escuchar información", playing:"Reproduciendo…",
+    askBtn:"Hacer una pregunta", listening:"Escuchando…", noMatch:"No te he entendido – selecciona manualmente.",
+    noSpeechRecog:"El reconocimiento de voz no es compatible con este navegador.",
+    thinking:"Un momento…", aiUnavailable:"Respuesta de IA no disponible ahora – aquí la categoría correspondiente:",
+    groupsNew:{vegan:"Vegano", halal:"Halal", bio:"Ecológico", alter:"Restricción de edad", nuts:"Alérgenos", naehzu:"Nutrición e ingredientes", allnew:"Todas las propiedades"},
+    groupsRet:{date:"Caducidad y lote", recycle:"Eliminación y reciclaje", rating:"Reseñas", allret:"Toda la información"},
+  },
+  ar:{
+    brandtag:"المتجر الذكي · EAH Jena", scanned:"المنتج الممسوح", cta:"عرض معلومات المنتج",
+    back:"مسح مرة أخرى", segNew:"مشترٍ لأول مرة", segRet:"عميل دائم",
+    hintNew:"الخصائص – ما المكونات؟", hintRet:"فحص سريع – الأساسيات",
+    voiceLabel:"الصوت", playBtn:"استماع للمعلومات", playing:"جارٍ التشغيل…",
+    askBtn:"اطرح سؤالاً", listening:"أستمع…", noMatch:"لم أفهم ذلك – يرجى الاختيار يدويًا.",
+    noSpeechRecog:"التعرف على الصوت غير مدعوم في هذا المتصفح.",
+    thinking:"لحظة من فضلك…", aiUnavailable:"إجابة الذكاء الاصطناعي غير متاحة الآن – إليك الفئة المطابقة:",
+    groupsNew:{vegan:"نباتي", halal:"حلال", bio:"عضوي", alter:"القيد العمري", nuts:"مسببات الحساسية", naehzu:"القيم الغذائية والمكونات", allnew:"جميع الخصائص"},
+    groupsRet:{date:"تاريخ الصلاحية والتشغيلة", recycle:"التخلص وإعادة التدوير", rating:"التقييمات", allret:"جميع المعلومات"},
+  },
+};
+
+// ===== PRODUKT-DATENBANK (mehrere Produkte, mehrere Sprachen) =====
 const PRODUCTS = {
   protein: {
     name:"Protein Bar",
@@ -170,15 +253,50 @@ const PRODUCTS = {
       <circle cx="46" cy="75" r="2.4" fill="#5A3A1E"/><circle cx="64" cy="76" r="2.4" fill="#5A3A1E"/>
       <path d="M16 54 Q60 38 104 54" stroke="#fff" stroke-width="2.5" opacity="0.4" fill="none"/></svg>`,
     data:{
-      vegan:{txt:"Dieser Protein Bar ist vegan und enthält keine tierischen Inhaltsstoffe.",icon:"eco",cls:"ok",show:"Vegan – keine tierischen Zutaten"},
-      halal:{txt:"Dieses Produkt ist halal-zertifiziert und enthält weder Schweinefleisch noch Alkohol.",icon:"verified",cls:"ok",show:"Halal-zertifiziert"},
-      bio:{txt:"Dieses Produkt trägt das EU-Bio-Siegel. Die Zutaten stammen aus kontrolliert biologischem Anbau.",icon:"compost",cls:"ok",show:"EU-Bio-zertifiziert"},
-      alter:{txt:"Für dieses Produkt gibt es keine Altersbeschränkung. Es ist für alle Altersgruppen geeignet.",icon:"check_circle",cls:"ok",show:"Keine Altersbeschränkung"},
-      nuts:{txt:"Achtung: Dieses Produkt enthält Erdnüsse sowie Spuren von Gluten und Soja.",icon:"warning",cls:"no",show:"Enthält Erdnüsse, Spuren von Gluten & Soja"},
-      naehzu:{txt:"Nährwerte pro Riegel: zweihundertzehn Kilokalorien, zwanzig Gramm Protein, sechs Gramm Zucker und neun Gramm Fett. Zutaten: Sojaprotein, Erdnüsse, Datteln, Kakao, Reissirup und natürliches Aroma.",icon:"nutrition",cls:"ok",show:"210 kcal · 20g Protein · 6g Zucker · 9g Fett · Sojaprotein, Erdnüsse, Datteln, Kakao"},
-      date:{txt:"Das Produkt ist haltbar bis zum zwölften August zweitausendsechsundzwanzig. Chargennummer L fünfundzwanzig.",icon:"event",cls:"warn",show:"Haltbar bis 12.08.2026 · Charge L25"},
-      recycle:{txt:"Die Verpackung besteht aus recycelbarem Kunststoff und gehört in den gelben Sack. Bitte trennen Sie Folie und Karton.",icon:"recycling",cls:"ok",show:"Gelber Sack · Folie & Karton trennen"},
-      rating:{txt:"Dieses Produkt hat eine Bewertung von vier Komma acht Sternen bei einhundertvierundzwanzig Rezensionen.",icon:"star",cls:"ok",show:"4,8 / 5,0 · 124 Rezensionen"},
+      de:{
+        vegan:{txt:"Dieser Protein Bar ist vegan und enthält keine tierischen Inhaltsstoffe.",icon:"eco",cls:"ok",show:"Vegan – keine tierischen Zutaten"},
+        halal:{txt:"Dieses Produkt ist halal-zertifiziert und enthält weder Schweinefleisch noch Alkohol.",icon:"verified",cls:"ok",show:"Halal-zertifiziert"},
+        bio:{txt:"Dieses Produkt trägt das EU-Bio-Siegel. Die Zutaten stammen aus kontrolliert biologischem Anbau.",icon:"compost",cls:"ok",show:"EU-Bio-zertifiziert"},
+        alter:{txt:"Für dieses Produkt gibt es keine Altersbeschränkung. Es ist für alle Altersgruppen geeignet.",icon:"check_circle",cls:"ok",show:"Keine Altersbeschränkung"},
+        nuts:{txt:"Achtung: Dieses Produkt enthält Erdnüsse sowie Spuren von Gluten und Soja.",icon:"warning",cls:"no",show:"Enthält Erdnüsse, Spuren von Gluten & Soja"},
+        naehzu:{txt:"Nährwerte pro Riegel: zweihundertzehn Kilokalorien, zwanzig Gramm Protein, sechs Gramm Zucker und neun Gramm Fett. Zutaten: Sojaprotein, Erdnüsse, Datteln, Kakao, Reissirup und natürliches Aroma.",icon:"nutrition",cls:"ok",show:"210 kcal · 20g Protein · 6g Zucker · 9g Fett · Sojaprotein, Erdnüsse, Datteln, Kakao"},
+        date:{txt:"Das Produkt ist haltbar bis zum zwölften August zweitausendsechsundzwanzig. Chargennummer L fünfundzwanzig.",icon:"event",cls:"warn",show:"Haltbar bis 12.08.2026 · Charge L25"},
+        recycle:{txt:"Die Verpackung besteht aus recycelbarem Kunststoff und gehört in den gelben Sack. Bitte trennen Sie Folie und Karton.",icon:"recycling",cls:"ok",show:"Gelber Sack · Folie & Karton trennen"},
+        rating:{txt:"Dieses Produkt hat eine Bewertung von vier Komma acht Sternen bei einhundertvierundzwanzig Rezensionen.",icon:"star",cls:"ok",show:"4,8 / 5,0 · 124 Rezensionen"},
+      },
+      en:{
+        vegan:{txt:"This protein bar is vegan and contains no animal ingredients.",icon:"eco",cls:"ok",show:"Vegan – no animal ingredients"},
+        halal:{txt:"This product is halal-certified and contains neither pork nor alcohol.",icon:"verified",cls:"ok",show:"Halal-certified"},
+        bio:{txt:"This product carries the EU organic seal. The ingredients come from certified organic farming.",icon:"compost",cls:"ok",show:"EU organic-certified"},
+        alter:{txt:"There is no age restriction for this product. It is suitable for all age groups.",icon:"check_circle",cls:"ok",show:"No age restriction"},
+        nuts:{txt:"Warning: This product contains peanuts and traces of gluten and soy.",icon:"warning",cls:"no",show:"Contains peanuts, traces of gluten & soy"},
+        naehzu:{txt:"Nutritional values per bar: two hundred and ten kilocalories, twenty grams of protein, six grams of sugar, and nine grams of fat. Ingredients: soy protein, peanuts, dates, cocoa, rice syrup, and natural flavoring.",icon:"nutrition",cls:"ok",show:"210 kcal · 20g protein · 6g sugar · 9g fat · Soy protein, peanuts, dates, cocoa"},
+        date:{txt:"This product is good until August twelfth, twenty twenty-six. Batch number L twenty-five.",icon:"event",cls:"warn",show:"Best before 12.08.2026 · Batch L25"},
+        recycle:{txt:"The packaging is made of recyclable plastic and belongs in the yellow recycling bin. Please separate the film from the cardboard.",icon:"recycling",cls:"ok",show:"Yellow bin · Separate film & cardboard"},
+        rating:{txt:"This product has a rating of four point eight stars from one hundred and twenty-four reviews.",icon:"star",cls:"ok",show:"4.8 / 5.0 · 124 reviews"},
+      },
+      es:{
+        vegan:{txt:"Esta barrita proteica es vegana y no contiene ingredientes de origen animal.",icon:"eco",cls:"ok",show:"Vegana – sin ingredientes animales"},
+        halal:{txt:"Este producto está certificado halal y no contiene cerdo ni alcohol.",icon:"verified",cls:"ok",show:"Certificado halal"},
+        bio:{txt:"Este producto lleva el sello ecológico de la Unión Europea. Los ingredientes proceden de agricultura ecológica controlada.",icon:"compost",cls:"ok",show:"Certificado ecológico UE"},
+        alter:{txt:"Este producto no tiene restricción de edad. Es apto para todas las edades.",icon:"check_circle",cls:"ok",show:"Sin restricción de edad"},
+        nuts:{txt:"Atención: este producto contiene cacahuetes y trazas de gluten y soja.",icon:"warning",cls:"no",show:"Contiene cacahuetes, trazas de gluten y soja"},
+        naehzu:{txt:"Valores nutricionales por barrita: doscientas diez kilocalorías, veinte gramos de proteína, seis gramos de azúcar y nueve gramos de grasa. Ingredientes: proteína de soja, cacahuetes, dátiles, cacao, sirope de arroz y aroma natural.",icon:"nutrition",cls:"ok",show:"210 kcal · 20g proteína · 6g azúcar · 9g grasa · Proteína de soja, cacahuetes, dátiles, cacao"},
+        date:{txt:"El producto se conserva hasta el doce de agosto de dos mil veintiséis. Número de lote L25.",icon:"event",cls:"warn",show:"Consumir antes del 12.08.2026 · Lote L25"},
+        recycle:{txt:"El envase es de plástico reciclable y va en el contenedor amarillo. Por favor, separe el film y el cartón.",icon:"recycling",cls:"ok",show:"Contenedor amarillo · Separar film y cartón"},
+        rating:{txt:"Este producto tiene una valoración de cuatro coma ocho estrellas con ciento veinticuatro reseñas.",icon:"star",cls:"ok",show:"4,8 / 5,0 · 124 reseñas"},
+      },
+      ar:{
+        vegan:{txt:"هذا الحاجز البروتيني نباتي بالكامل ولا يحتوي على أي مكونات حيوانية.",icon:"eco",cls:"ok",show:"نباتي – بدون مكونات حيوانية"},
+        halal:{txt:"هذا المنتج حاصل على شهادة حلال ولا يحتوي على لحم خنزير أو كحول.",icon:"verified",cls:"ok",show:"معتمد حلال"},
+        bio:{txt:"يحمل هذا المنتج ختم الاتحاد الأوروبي العضوي. المكونات مصدرها زراعة عضوية معتمدة.",icon:"compost",cls:"ok",show:"معتمد عضوي من الاتحاد الأوروبي"},
+        alter:{txt:"لا يوجد قيد عمري لهذا المنتج، وهو مناسب لجميع الفئات العمرية.",icon:"check_circle",cls:"ok",show:"بدون قيد عمري"},
+        nuts:{txt:"تنبيه: يحتوي هذا المنتج على الفول السوداني وآثار من الغلوتين وفول الصويا.",icon:"warning",cls:"no",show:"يحتوي على فول سوداني، آثار غلوتين وصويا"},
+        naehzu:{txt:"القيم الغذائية لكل قطعة: مئتان وعشر سعرات حرارية، عشرون غراماً من البروتين، ستة غرامات سكر، وتسعة غرامات دهون. المكونات: بروتين الصويا، الفول السوداني، التمر، الكاكاو، شراب الأرز، ونكهة طبيعية.",icon:"nutrition",cls:"ok",show:"210 سعرة · 20غ بروتين · 6غ سكر · 9غ دهون · بروتين صويا، فول سوداني، تمر، كاكاو"},
+        date:{txt:"المنتج صالح للاستهلاك حتى الثاني عشر من أغسطس عام ألفين وستة وعشرين. رقم التشغيلة L25.",icon:"event",cls:"warn",show:"صالح حتى 12.08.2026 · التشغيلة L25"},
+        recycle:{txt:"العبوة مصنوعة من بلاستيك قابل لإعادة التدوير، وتوضع في الحاوية الصفراء. يرجى فصل الغلاف البلاستيكي عن الكرتون.",icon:"recycling",cls:"ok",show:"الحاوية الصفراء · افصل الغلاف عن الكرتون"},
+        rating:{txt:"حصل هذا المنتج على تقييم أربعة فاصلة ثمانية نجوم من أصل مئة وأربع وعشرين مراجعة.",icon:"star",cls:"ok",show:"4.8 / 5.0 · 124 مراجعة"},
+      },
     }
   },
   snack: {
@@ -195,15 +313,50 @@ const PRODUCTS = {
       <circle cx="40" cy="72" r="2.2" fill="#6B4420"/><circle cx="72" cy="72" r="2.2" fill="#6B4420"/>
       <path d="M16 56 Q60 42 104 56" stroke="#fff" stroke-width="2.5" opacity="0.4" fill="none"/></svg>`,
     data:{
-      vegan:{txt:"Dieser Snack Bar ist nicht vegan, da er Honig und Milchpulver enthält.",icon:"eco",cls:"no",show:"Nicht vegan – enthält Honig & Milchpulver"},
-      halal:{txt:"Dieses Produkt ist halal-zertifiziert.",icon:"verified",cls:"ok",show:"Halal-zertifiziert"},
-      bio:{txt:"Dieses Produkt ist nicht Bio-zertifiziert.",icon:"compost",cls:"no",show:"Keine Bio-Zertifizierung"},
-      alter:{txt:"Für dieses Produkt gibt es keine Altersbeschränkung.",icon:"check_circle",cls:"ok",show:"Keine Altersbeschränkung"},
-      nuts:{txt:"Achtung: Dieses Produkt enthält Haselnüsse und Milch. Es kann Spuren von Gluten enthalten.",icon:"warning",cls:"no",show:"Enthält Haselnüsse & Milch, Spuren von Gluten"},
-      naehzu:{txt:"Nährwerte pro Riegel: einhundertachtzig Kilokalorien, vier Gramm Protein, zwölf Gramm Zucker und sieben Gramm Fett. Zutaten: Haferflocken, Honig, Haselnüsse, Milchpulver und Rosinen.",icon:"nutrition",cls:"ok",show:"180 kcal · 4g Protein · 12g Zucker · 7g Fett · Haferflocken, Honig, Haselnüsse, Milch"},
-      date:{txt:"Das Produkt ist haltbar bis zum dritten Mai zweitausendsechsundzwanzig. Chargennummer S zwölf.",icon:"event",cls:"warn",show:"Haltbar bis 03.05.2026 · Charge S12"},
-      recycle:{txt:"Die Verpackung ist aus Papier und gehört in die Altpapiertonne.",icon:"recycling",cls:"ok",show:"Altpapiertonne · Verpackung aus Papier"},
-      rating:{txt:"Dieses Produkt hat eine Bewertung von vier Komma zwei Sternen bei siebenundachtzig Rezensionen.",icon:"star",cls:"ok",show:"4,2 / 5,0 · 87 Rezensionen"},
+      de:{
+        vegan:{txt:"Dieser Snack Bar ist nicht vegan, da er Honig und Milchpulver enthält.",icon:"eco",cls:"no",show:"Nicht vegan – enthält Honig & Milchpulver"},
+        halal:{txt:"Dieses Produkt ist halal-zertifiziert.",icon:"verified",cls:"ok",show:"Halal-zertifiziert"},
+        bio:{txt:"Dieses Produkt ist nicht Bio-zertifiziert.",icon:"compost",cls:"no",show:"Keine Bio-Zertifizierung"},
+        alter:{txt:"Für dieses Produkt gibt es keine Altersbeschränkung.",icon:"check_circle",cls:"ok",show:"Keine Altersbeschränkung"},
+        nuts:{txt:"Achtung: Dieses Produkt enthält Haselnüsse und Milch. Es kann Spuren von Gluten enthalten.",icon:"warning",cls:"no",show:"Enthält Haselnüsse & Milch, Spuren von Gluten"},
+        naehzu:{txt:"Nährwerte pro Riegel: einhundertachtzig Kilokalorien, vier Gramm Protein, zwölf Gramm Zucker und sieben Gramm Fett. Zutaten: Haferflocken, Honig, Haselnüsse, Milchpulver und Rosinen.",icon:"nutrition",cls:"ok",show:"180 kcal · 4g Protein · 12g Zucker · 7g Fett · Haferflocken, Honig, Haselnüsse, Milch"},
+        date:{txt:"Das Produkt ist haltbar bis zum dritten Mai zweitausendsechsundzwanzig. Chargennummer S zwölf.",icon:"event",cls:"warn",show:"Haltbar bis 03.05.2026 · Charge S12"},
+        recycle:{txt:"Die Verpackung ist aus Papier und gehört in die Altpapiertonne.",icon:"recycling",cls:"ok",show:"Altpapiertonne · Verpackung aus Papier"},
+        rating:{txt:"Dieses Produkt hat eine Bewertung von vier Komma zwei Sternen bei siebenundachtzig Rezensionen.",icon:"star",cls:"ok",show:"4,2 / 5,0 · 87 Rezensionen"},
+      },
+      en:{
+        vegan:{txt:"This snack bar is not vegan, as it contains honey and milk powder.",icon:"eco",cls:"no",show:"Not vegan – contains honey & milk powder"},
+        halal:{txt:"This product is halal-certified.",icon:"verified",cls:"ok",show:"Halal-certified"},
+        bio:{txt:"This product is not organic-certified.",icon:"compost",cls:"no",show:"No organic certification"},
+        alter:{txt:"There is no age restriction for this product.",icon:"check_circle",cls:"ok",show:"No age restriction"},
+        nuts:{txt:"Warning: This product contains hazelnuts and milk. It may contain traces of gluten.",icon:"warning",cls:"no",show:"Contains hazelnuts & milk, traces of gluten"},
+        naehzu:{txt:"Nutritional values per bar: one hundred and eighty kilocalories, four grams of protein, twelve grams of sugar, and seven grams of fat. Ingredients: oats, honey, hazelnuts, milk powder, and raisins.",icon:"nutrition",cls:"ok",show:"180 kcal · 4g protein · 12g sugar · 7g fat · Oats, honey, hazelnuts, milk"},
+        date:{txt:"This product is good until May third, twenty twenty-six. Batch number S twelve.",icon:"event",cls:"warn",show:"Best before 03.05.2026 · Batch S12"},
+        recycle:{txt:"The packaging is made of paper and belongs in the paper recycling bin.",icon:"recycling",cls:"ok",show:"Paper bin · Packaging made of paper"},
+        rating:{txt:"This product has a rating of four point two stars from eighty-seven reviews.",icon:"star",cls:"ok",show:"4.2 / 5.0 · 87 reviews"},
+      },
+      es:{
+        vegan:{txt:"Esta barrita snack no es vegana, ya que contiene miel y leche en polvo.",icon:"eco",cls:"no",show:"No vegana – contiene miel y leche en polvo"},
+        halal:{txt:"Este producto está certificado halal.",icon:"verified",cls:"ok",show:"Certificado halal"},
+        bio:{txt:"Este producto no está certificado como ecológico.",icon:"compost",cls:"no",show:"Sin certificación ecológica"},
+        alter:{txt:"Este producto no tiene restricción de edad.",icon:"check_circle",cls:"ok",show:"Sin restricción de edad"},
+        nuts:{txt:"Atención: este producto contiene avellanas y leche. Puede contener trazas de gluten.",icon:"warning",cls:"no",show:"Contiene avellanas y leche, trazas de gluten"},
+        naehzu:{txt:"Valores nutricionales por barrita: ciento ochenta kilocalorías, cuatro gramos de proteína, doce gramos de azúcar y siete gramos de grasa. Ingredientes: copos de avena, miel, avellanas, leche en polvo y pasas.",icon:"nutrition",cls:"ok",show:"180 kcal · 4g proteína · 12g azúcar · 7g grasa · Avena, miel, avellanas, leche"},
+        date:{txt:"El producto se conserva hasta el tres de mayo de dos mil veintiséis. Número de lote S12.",icon:"event",cls:"warn",show:"Consumir antes del 03.05.2026 · Lote S12"},
+        recycle:{txt:"El envase es de papel y va en el contenedor de papel.",icon:"recycling",cls:"ok",show:"Contenedor de papel · Envase de papel"},
+        rating:{txt:"Este producto tiene una valoración de cuatro coma dos estrellas con ochenta y siete reseñas.",icon:"star",cls:"ok",show:"4,2 / 5,0 · 87 reseñas"},
+      },
+      ar:{
+        vegan:{txt:"هذا الحاجز الخفيف ليس نباتيًا بالكامل، لأنه يحتوي على العسل ومسحوق الحليب.",icon:"eco",cls:"no",show:"غير نباتي – يحتوي على عسل ومسحوق حليب"},
+        halal:{txt:"هذا المنتج حاصل على شهادة حلال.",icon:"verified",cls:"ok",show:"معتمد حلال"},
+        bio:{txt:"هذا المنتج غير معتمد كمنتج عضوي.",icon:"compost",cls:"no",show:"بدون شهادة عضوية"},
+        alter:{txt:"لا يوجد قيد عمري لهذا المنتج.",icon:"check_circle",cls:"ok",show:"بدون قيد عمري"},
+        nuts:{txt:"تنبيه: يحتوي هذا المنتج على البندق والحليب، وقد يحتوي على آثار من الغلوتين.",icon:"warning",cls:"no",show:"يحتوي على بندق وحليب، آثار غلوتين"},
+        naehzu:{txt:"القيم الغذائية لكل قطعة: مئة وثمانون سعرة حرارية، أربعة غرامات بروتين، اثنا عشر غراماً سكر، وسبعة غرامات دهون. المكونات: الشوفان، العسل، البندق، مسحوق الحليب، والزبيب.",icon:"nutrition",cls:"ok",show:"180 سعرة · 4غ بروتين · 12غ سكر · 7غ دهون · شوفان، عسل، بندق، حليب"},
+        date:{txt:"المنتج صالح للاستهلاك حتى الثالث من مايو عام ألفين وستة وعشرين. رقم التشغيلة S12.",icon:"event",cls:"warn",show:"صالح حتى 03.05.2026 · التشغيلة S12"},
+        recycle:{txt:"العبوة مصنوعة من الورق وتوضع في حاوية الورق.",icon:"recycling",cls:"ok",show:"حاوية الورق · عبوة ورقية"},
+        rating:{txt:"حصل هذا المنتج على تقييم أربعة فاصلة اثنين نجوم من أصل سبع وثمانين مراجعة.",icon:"star",cls:"ok",show:"4.2 / 5.0 · 87 مراجعة"},
+      },
     }
   }
 };
@@ -212,7 +365,9 @@ const PRODUCTS = {
 const params = new URLSearchParams(location.search);
 const key = (params.get('produkt') || 'protein').toLowerCase();
 const P = PRODUCTS[key] || PRODUCTS.protein;
-const DB = P.data;
+
+let currentLang = 'de';
+let DB = P.data[currentLang];
 
 // render product identity into the page
 function renderIdentity(prod){
@@ -226,10 +381,12 @@ function renderIdentity(prod){
 }
 renderIdentity(P);
 
-// ===== OPTIONAL: Google Sheets als Datenbank =====
+// ===== OPTIONAL: Google Sheets als Datenbank (nur Deutsch) =====
 // Trage hier den CSV-Link aus "Im Web veröffentlichen" ein.
 // Leer lassen = eingebaute Daten werden verwendet (funktioniert offline).
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmUpaLCIMK9OnbILTVyUVKzYZpINPDZgjwjiPk0Ble20IelcyTVKw2LKp6-mRxRXVthUvfm_M3-Eop/pub?gid=0&single=true&output=csv"; // z.B. "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?output=csv"
+// Hinweis: Das Sheet aktualisiert nur die deutschen Daten (DB "de").
+// Die anderen Sprachen (EN/ES/AR) bleiben auf den fest hinterlegten Übersetzungen.
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmUpaLCIMK9OnbILTVyUVKzYZpINPDZgjwjiPk0Ble20IelcyTVKw2LKp6-mRxRXVthUvfm_M3-Eop/pub?gid=0&single=true&output=csv";
 
 function parseCSV(text){
   const rows=[]; let row=[], cur="", q=false;
@@ -257,7 +414,6 @@ async function loadFromSheet(){
     const rec = rows.slice(1).find(r=>(r[idx("produkt")]||"").trim().toLowerCase()===key);
     if(!rec) return;
     const g=n=>{const i=idx(n); return i>=0?(rec[i]||"").trim():"";};
-    // update identity — "neue preis" ersetzt "preis" wenn vorhanden
     P.name=g("name")||P.name;
     const neuPreis = g("neue preis") || g("preis");
     P.price="€ "+(neuPreis||"").replace("€","").trim();
@@ -265,65 +421,280 @@ async function loadFromSheet(){
     P.disc=g("rabatt")||P.disc;
     P.link=g("link")||"";
     renderIdentity(P);
-    // update data fields
+    const deData = P.data.de;
     const veg=yesno(g("vegan"),"eco","warning");
-    DB.vegan={txt:g("vegan").toLowerCase()==="ja"?"Dieses Produkt ist vegan.":"Dieses Produkt ist nicht vegan.",icon:veg.mark,cls:veg.cls,show:g("vegan").toLowerCase()==="ja"?"Vegan":"Nicht vegan"};
+    deData.vegan={txt:g("vegan").toLowerCase()==="ja"?"Dieses Produkt ist vegan.":"Dieses Produkt ist nicht vegan.",icon:veg.mark,cls:veg.cls,show:g("vegan").toLowerCase()==="ja"?"Vegan":"Nicht vegan"};
     const hal=yesno(g("halal"),"verified","warning");
-    DB.halal={txt:g("halal").toLowerCase()==="ja"?"Dieses Produkt ist halal-zertifiziert.":"Dieses Produkt ist nicht halal-zertifiziert.",icon:hal.mark,cls:hal.cls,show:g("halal").toLowerCase()==="ja"?"Halal-zertifiziert":"Nicht halal"};
+    deData.halal={txt:g("halal").toLowerCase()==="ja"?"Dieses Produkt ist halal-zertifiziert.":"Dieses Produkt ist nicht halal-zertifiziert.",icon:hal.mark,cls:hal.cls,show:g("halal").toLowerCase()==="ja"?"Halal-zertifiziert":"Nicht halal"};
     const bio=yesno(g("bio"),"compost","warning");
-    DB.bio={txt:g("bio").toLowerCase()==="ja"?"Dieses Produkt trägt das EU-Bio-Siegel.":"Dieses Produkt ist nicht Bio-zertifiziert.",icon:bio.mark,cls:bio.cls,show:g("bio").toLowerCase()==="ja"?"EU-Bio-zertifiziert":"Keine Bio-Zertifizierung"};
-    if(g("allergene")) DB.nuts={txt:"Achtung: Dieses Produkt enthält "+g("allergene")+".",icon:"warning",cls:"no",show:"Enthält: "+g("allergene")};
-    if(g("naehrwerte")) DB.naehzu={txt:"Nährwerte und Zutaten: "+g("naehrwerte")+".",icon:"nutrition",cls:"ok",show:g("naehrwerte")};
-    if(g("verfallsdatum")) DB.date={txt:"Haltbar bis "+g("verfallsdatum")+".",icon:"event",cls:"warn",show:"Haltbar bis "+g("verfallsdatum")};
-    if(g("entsorgung")) DB.recycle={txt:"Entsorgung: "+g("entsorgung")+".",icon:"recycling",cls:"ok",show:g("entsorgung")};
-    if(g("rating")) DB.rating={txt:"Bewertung: "+g("rating")+" von fünf Sternen.",icon:"star",cls:"ok",show:g("rating")+" / 5,0"};
+    deData.bio={txt:g("bio").toLowerCase()==="ja"?"Dieses Produkt trägt das EU-Bio-Siegel.":"Dieses Produkt ist nicht Bio-zertifiziert.",icon:bio.mark,cls:bio.cls,show:g("bio").toLowerCase()==="ja"?"EU-Bio-zertifiziert":"Keine Bio-Zertifizierung"};
+    if(g("allergene")) deData.nuts={txt:"Achtung: Dieses Produkt enthält "+g("allergene")+".",icon:"warning",cls:"no",show:"Enthält: "+g("allergene")};
+    if(g("naehrwerte")) deData.naehzu={txt:"Nährwerte und Zutaten: "+g("naehrwerte")+".",icon:"nutrition",cls:"ok",show:g("naehrwerte")};
+    if(g("verfallsdatum")) deData.date={txt:"Haltbar bis "+g("verfallsdatum")+".",icon:"event",cls:"warn",show:"Haltbar bis "+g("verfallsdatum")};
+    if(g("entsorgung")) deData.recycle={txt:"Entsorgung: "+g("entsorgung")+".",icon:"recycling",cls:"ok",show:g("entsorgung")};
+    if(g("rating")) deData.rating={txt:"Bewertung: "+g("rating")+" von fünf Sternen.",icon:"star",cls:"ok",show:g("rating")+" / 5,0"};
+    if(currentLang==='de'){ DB = P.data.de; if(chosen) refreshResult(); }
   }catch(e){ /* offline or error -> built-in data stays */ }
 }
 loadFromSheet();
-const GROUPS={
-  new:[["vegan","eco","Vegan"],["halal","verified","Halal"],["bio","compost","Bio / Organik"],["alter","shield_person","Altersbeschränkung"],["nuts","warning","Allergene"],["naehzu","nutrition","Nährwerte & Zutaten"],["allnew","frame_inspect","Alle Eigenschaften"]],
-  return:[["date","event","Verfallsdatum & Charge"],["recycle","recycling","Entsorgung & Recycling"],["rating","star","Bewertungen"],["allret","frame_inspect","Alle Infos"]],
-};
-const HINTS={new:"Eigenschaften – was ist drin?",return:"Kurz geprüft – das Wesentliche"};
 
-let seg="new",chosen=null;
+const GROUP_KEYS = {
+  new:[["vegan","eco"],["halal","verified"],["bio","compost"],["alter","shield_person"],["nuts","warning"],["naehzu","nutrition"],["allnew","frame_inspect"]],
+  return:[["date","event"],["recycle","recycling"],["rating","star"],["allret","frame_inspect"]],
+};
+
+let seg="new", chosen=null;
+
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 function clearR(){const r=document.getElementById('result');r.classList.remove('show');r.innerHTML='';}
 function reset(){chosen=null;clearR();document.getElementById('playBtn').disabled=true;if('speechSynthesis'in window)speechSynthesis.cancel();setSeg('new');go('s1');}
-function setSeg(s){seg=s;chosen=null;clearR();document.getElementById('playBtn').disabled=true;
+
+function setSeg(s){
+  seg=s;chosen=null;clearR();document.getElementById('playBtn').disabled=true;
   document.getElementById('segNew').classList.toggle('on',s==='new');
   document.getElementById('segRet').classList.toggle('on',s==='return');
-  document.getElementById('hint').textContent=HINTS[s];render();}
-function render(){
-  document.getElementById('list').innerHTML=GROUPS[seg].map(([k,ic,lb])=>
-    `<button class="opt" data-k="${k}" onclick="sel(this)"><span class="material-symbols-rounded">${ic}</span><span class="txt">${lb}</span><span class="material-symbols-rounded chev">chevron_right</span></button>`).join('');
+  const t = UI[currentLang];
+  document.getElementById('hint').textContent = s==='new' ? t.hintNew : t.hintRet;
+  render();
 }
+
+function render(){
+  const t = UI[currentLang];
+  const labels = seg==='new' ? t.groupsNew : t.groupsRet;
+  document.getElementById('list').innerHTML=GROUP_KEYS[seg].map(([k,ic])=>
+    `<button class="opt" data-k="${k}" onclick="sel(this)"><span class="material-symbols-rounded">${ic}</span><span class="txt">${labels[k]}</span><span class="material-symbols-rounded chev">chevron_right</span></button>`).join('');
+}
+
 function sel(el){document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');chosen=el.dataset.k;document.getElementById('playBtn').disabled=false;clearR();}
+
 function lines(){
   if(chosen==="allnew")return[DB.vegan,DB.halal,DB.bio,DB.alter,DB.nuts,DB.naehzu];
   if(chosen==="allret")return[DB.date,DB.recycle,DB.rating];
   return[DB[chosen]];
 }
+
 let best=null;
-const RANK=["Anna (Premium)","Anna (Enhanced)","Petra (Premium)","Petra (Enhanced)","Markus (Premium)","Google Deutsch","Microsoft Katja","Microsoft Hedda","Anna","Petra","Markus"];
-function pick(){const vs=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith("de"));if(!vs.length)return;best=null;
-  for(const n of RANK){const m=vs.find(v=>v.name.includes(n));if(m){best=m;break;}}
+const RANK_BY_LANG = {
+  de:["Anna (Premium)","Anna (Enhanced)","Petra (Premium)","Petra (Enhanced)","Markus (Premium)","Google Deutsch","Microsoft Katja","Microsoft Hedda","Anna","Petra","Markus"],
+  en:["Google US English","Samantha","Microsoft Aria","Microsoft Guy","Alex"],
+  es:["Google español","Mónica","Microsoft Helena","Microsoft Alvaro","Paulina"],
+  ar:["Google العربية","Maged","Microsoft Hamed","Microsoft Salma","Tarik"],
+};
+
+function pick(){
+  const code = LANG_META[currentLang].code;
+  const prefix = code.split('-')[0];
+  const vs=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith(prefix));
+  const sel=document.getElementById('voiceSel');
+  if(!vs.length){ if(sel) sel.innerHTML=''; best=null; return; }
+  best=null;
+  const rank = RANK_BY_LANG[currentLang]||[];
+  for(const n of rank){const m=vs.find(v=>v.name.includes(n));if(m){best=m;break;}}
   if(!best)best=vs.find(v=>!/compact|eloquence/i.test(v.name))||vs[0];
-  const sel=document.getElementById('voiceSel');if(sel)sel.innerHTML=vs.map(v=>`<option ${v===best?'selected':''}>${v.name}</option>`).join('');}
+  if(sel) sel.innerHTML=vs.map(v=>`<option ${v===best?'selected':''}>${v.name}</option>`).join('');
+}
 if('speechSynthesis'in window){speechSynthesis.onvoiceschanged=pick;pick();}
-function speak(){
+
+function refreshResult(){
+  if(!chosen) return;
   const rows=lines();const r=document.getElementById('result');
-  r.innerHTML='<div class="playing"><span class="bars"><i></i><i></i><i></i><i></i></span> Wird vorgelesen…</div>'+
+  r.innerHTML=rows.map(x=>`<div class="rrow ${x.cls}"><span class="material-symbols-rounded">${x.icon}</span><span>${x.show||x.txt}</span></div>`).join('');
+}
+
+function speak(){
+  const t = UI[currentLang];
+  const rows=lines();const r=document.getElementById('result');
+  r.innerHTML=`<div class="playing"><span class="bars"><i></i><i></i><i></i><i></i></span> ${t.playing}</div>`+
     rows.map(x=>`<div class="rrow ${x.cls}"><span class="material-symbols-rounded">${x.icon}</span><span>${x.show||x.txt}</span></div>`).join('');
   r.classList.add('show');
   if(!('speechSynthesis'in window))return;speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(rows.map(x=>x.txt).join(' '));
   const sel=document.getElementById('voiceSel');let v=best;
   if(sel&&sel.value){const f=speechSynthesis.getVoices().find(x=>x.name===sel.value);if(f)v=f;}
-  if(v){u.voice=v;u.lang=v.lang;}else u.lang='de-DE';u.rate=.94;u.pitch=1;
+  if(v){u.voice=v;u.lang=v.lang;}else u.lang=LANG_META[currentLang].code;
+  u.rate=.94;u.pitch=1;
   u.onend=()=>{const p=r.querySelector('.playing');if(p)p.remove();};
   speechSynthesis.speak(u);
 }
+
+// ===== VOICE INPUT ("Frag mich") =====
+const KEYWORDS_BY_LANG = {
+  de:{
+    vegan:["vegan"], halal:["halal"], bio:["bio","organisch","öko"],
+    alter:["alter","altersbeschränkung","jahre"], nuts:["allergen","allergie","nuss","nüsse","gluten","erdnuss"],
+    naehzu:["nährwert","kalorien","zutaten","protein"], date:["verfallsdatum","haltbar","charge","ablaufdatum"],
+    recycle:["entsorgung","recycling","verpackung","tonne"], rating:["bewertung","sterne","rezension"],
+    all:["alle","alles","komplett"],
+  },
+  en:{
+    vegan:["vegan"], halal:["halal"], bio:["organic","bio"],
+    alter:["age","restriction"], nuts:["allergen","allergy","nut","nuts","gluten","peanut"],
+    naehzu:["nutrition","calorie","ingredient","protein"], date:["expiry","expiration","best before","batch"],
+    recycle:["recycl","disposal","packaging","bin"], rating:["rating","review","stars"],
+    all:["all","everything"],
+  },
+  es:{
+    vegan:["vegano","vegana"], halal:["halal"], bio:["ecológico","organico","orgánico","bio"],
+    alter:["edad","restricción"], nuts:["alérgeno","alergia","frutos secos","gluten","cacahuete"],
+    naehzu:["nutrición","calorías","ingrediente","proteína"], date:["caducidad","lote","fecha"],
+    recycle:["reciclaje","envase","desecho","contenedor"], rating:["valoración","reseña","estrellas"],
+    all:["todo","todas","todo lo"],
+  },
+  ar:{
+    vegan:["نباتي"], halal:["حلال"], bio:["عضوي"],
+    alter:["عمري","عمر","قيد"], nuts:["حساسية","مسببات","غلوتين","فول سوداني"],
+    naehzu:["غذائية","سعرات","مكونات","بروتين"], date:["صلاحية","تشغيلة"],
+    recycle:["تدوير","تخلص","عبوة"], rating:["تقييم","مراجعة","نجوم"],
+    all:["كل","جميع"],
+  },
+};
+
+function matchKeyword(transcript){
+  const t = transcript.toLowerCase();
+  const map = KEYWORDS_BY_LANG[currentLang];
+  for(const k of Object.keys(map)){
+    for(const kw of map[k]){
+      if(t.includes(kw)) return k;
+    }
+  }
+  return null;
+}
+
+function getRecognition(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR) return null;
+  const r = new SR();
+  r.lang = LANG_META[currentLang].code;
+  r.maxAlternatives = 1;
+  r.interimResults = false;
+  return r;
+}
+
+function resetAskBtn(){
+  const btn = document.getElementById('askBtn');
+  btn.classList.remove('listening');
+  const span = btn.querySelector('[data-i="askBtn"]');
+  if(span) span.textContent = UI[currentLang].askBtn;
+}
+
+function startListening(){
+  const t = UI[currentLang];
+  const rec = getRecognition();
+  const askBtnEl = document.getElementById('askBtn');
+  if(!rec){
+    const r = document.getElementById('result');
+    r.innerHTML = `<div class="rrow warn"><span class="material-symbols-rounded">info</span><span>${t.noSpeechRecog}</span></div>`;
+    r.classList.add('show');
+    return;
+  }
+  askBtnEl.classList.add('listening');
+  const span = askBtnEl.querySelector('[data-i="askBtn"]');
+  if(span) span.textContent = t.listening;
+  rec.onresult = (e)=>{
+    const transcript = e.results[0][0].transcript;
+    handleVoiceQuery(transcript);
+  };
+  rec.onerror = ()=>{ resetAskBtn(); };
+  rec.onend = ()=>{ resetAskBtn(); };
+  try{ rec.start(); }catch(e){ resetAskBtn(); }
+}
+
+async function handleVoiceQuery(transcript){
+  const t = UI[currentLang];
+  const r = document.getElementById('result');
+  r.innerHTML = `<div class="playing"><span class="bars"><i></i><i></i><i></i><i></i></span> ${t.thinking}</div>`;
+  r.classList.add('show');
+
+  const aiAnswer = await askAI(transcript);
+  if(aiAnswer){
+    r.innerHTML = `<div class="rrow ok"><span class="material-symbols-rounded">smart_toy</span><span>${aiAnswer}</span></div>`;
+    if('speechSynthesis'in window){
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(aiAnswer);
+      if(best){u.voice=best;u.lang=best.lang;}else u.lang=LANG_META[currentLang].code;
+      u.rate=.94;u.pitch=1;
+      speechSynthesis.speak(u);
+    }
+    return;
+  }
+
+  // ---- fallback: local keyword matching (works fully offline) ----
+  const key = matchKeyword(transcript);
+  if(!key){
+    r.innerHTML = `<div class="rrow warn"><span class="material-symbols-rounded">help</span><span>${t.noMatch} ("${transcript}")</span></div>`;
+    r.classList.add('show');
+    return;
+  }
+  let targetKey = key, targetSeg = seg;
+  if(key==='all'){
+    targetKey = seg==='new' ? 'allnew' : 'allret';
+  } else {
+    if(GROUP_KEYS.new.some(([k])=>k===key)) targetSeg='new';
+    else if(GROUP_KEYS.return.some(([k])=>k===key)) targetSeg='return';
+  }
+  if(targetSeg!==seg) setSeg(targetSeg);
+  const btn = document.querySelector(`.opt[data-k="${targetKey}"]`);
+  if(btn) sel(btn);
+  const note = document.createElement('div');
+  note.className = 'rrow warn';
+  note.innerHTML = `<span class="material-symbols-rounded">info</span><span>${t.aiUnavailable}</span>`;
+  speak();
+  setTimeout(()=>{ document.getElementById('result').prepend(note); }, 10);
+}
+
+async function askAI(question){
+  try{
+    const res = await fetch('/.netlify/functions/ask', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        question,
+        productName: P.name,
+        productData: DB,
+        lang: currentLang,
+      }),
+    });
+    if(!res.ok) return null;
+    const data = await res.json();
+    return data.answer || null;
+  }catch(e){
+    return null; // offline, function not deployed yet, etc. -> caller falls back to keyword matching
+  }
+}
+
+// ===== Sprachumschaltung (DE / EN / ES / AR) =====
+function renderLangButtons(){
+  const html = Object.keys(LANG_META).map(l=>
+    `<button class="langbtn ${l===currentLang?'on':''}" onclick="setLang('${l}')">${LANG_META[l].label}</button>`).join('');
+  document.getElementById('langrowWelcome').innerHTML = html;
+  document.getElementById('langrowProduct').innerHTML = html;
+}
+
+function applyStaticText(){
+  const t = UI[currentLang];
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const key = el.getAttribute('data-i');
+    if(t[key]!==undefined) el.textContent = t[key];
+  });
+  document.getElementById('hint').textContent = seg==='new' ? t.hintNew : t.hintRet;
+}
+
+function setLang(l){
+  if(!LANG_META[l] || l===currentLang){ if(!LANG_META[l]) return; }
+  currentLang = l;
+  DB = P.data[l];
+  const meta = LANG_META[l];
+  document.documentElement.setAttribute('lang', l);
+  document.documentElement.setAttribute('dir', meta.dir);
+  applyStaticText();
+  renderLangButtons();
+  render();
+  if(chosen) refreshResult();
+  if('speechSynthesis'in window){speechSynthesis.cancel();pick();}
+}
+
+renderLangButtons();
+applyStaticText();
 render();
 </script>
 </body>
